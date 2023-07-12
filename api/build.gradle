@@ -1,0 +1,10 @@
+archivesBaseName = "santopia-api"
+
+dependencies {
+    api 'org.mongodb:mongo-java-driver:3.12.14'
+    api 'redis.clients:jedis:4.4.3'
+    api 'com.rabbitmq:amqp-client:5.18.0'
+    api 'net.luckperms:api:5.4'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.google.guava:guava:32.0.1-jre'
+}

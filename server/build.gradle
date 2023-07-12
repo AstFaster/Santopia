@@ -1,0 +1,33 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+archivesBaseName = "santopia-server"
+
+repositories {
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+}
+
+dependencies {
+    shadow (project(":api")) {
+        exclude group: 'net.luckperms', module: 'api'
+    }
+    implementation project(":api")
+
+    implementation 'org.jetbrains:annotations:24.0.1'
+    compileOnly 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
+}

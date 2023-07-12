@@ -1,0 +1,5 @@
+name: Santopia
+version: 1.0.0
+main: fr.astfaster.santopia.server.SantopiaPlugin
+depend: [LuckPerms]
+api-version: "1.20"
